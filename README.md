@@ -1,7 +1,7 @@
 # 1-Fundamentos de las herramientas de desarrollo
 
 Veremos herramientas utiles para el desarrollo con **REACT** como **NPM**, **BABEL**, **WEBPACK** aunque tambien
-se utilizaran
+se utilizaran 
 
 ## Entorno de desarrollo de REACT JS
 
@@ -24,7 +24,6 @@ Para abrir las **DevTools** se utiliza *ctrl+shift+i*.
 
 Las **DevTools** posee  una *consola* la cual permite una interaccion
 entre el programa y el navegador.
-
 
 ## Creando Stack con REACT
 
@@ -52,7 +51,7 @@ Junto con la aplicacion de codigo de **CSS** para mejor las paginas web.
 Los temas vistos en esta seccion son:
 
 1. Introduccion a JSX
-
+2. Componentes
 
 ## Introduccion a JSX
 
@@ -60,7 +59,35 @@ Los temas vistos en esta seccion son:
 
 ### Creacion de elementos e insercion en el DOM
 
-utilizar **REACT** debo importar el modulo ***React*** y ***ReactDOM***.
+Utilizar **REACT** debo importar el modulo ***React*** y ***ReactDOM***.
 
-[Introduccion JSX]: ./Images/0001.png
+![insercion](./images/0001.png?raw=true "Title")
+
+### Expresiones
+
+Para insertar una expresion en **JSX**, utilizando llaves, dentro de ellos puedo colocar cualquier expresion valida de **JS*.
+
+![insercion](./images/0002.png?raw=true "Title")
+
+## Componentes
+
+Los componentes permiten la reutilizacion de codigo
+. Existen 2 grandes grupos de componentes los **FUNCIONALES** y 
+**BASADOS EN CLASES**.
+
+### Funcionales
+
+Son funciones que retornan una unica etiqueta de **HTML**. Para 
+llamar un componente un funcional se debe utilizar la nomenclatura clasica de **HTML**.
+
+![insercion](./images/0003.png?raw=true "Title")
+
+
+### Props
+
+Las **props** son variables de entrada de los componentes,
+los componentes que se le pasan a un **props** se deben utilizar
+llaves aunque para los datos de tipo **String** son opcionales.
+
+![insercion](./images/0004.png?raw=true "Title")
 
