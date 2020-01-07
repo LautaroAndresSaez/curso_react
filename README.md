@@ -65,7 +65,7 @@ Utilizar **REACT** debo importar el modulo ***React*** y ***ReactDOM***.
 
 ### Expresiones
 
-Para insertar una expresion en **JSX**, utilizando llaves, dentro de ellos puedo colocar cualquier expresion valida de **JS*.
+Para insertar una expresion en **JSX**, utilizando llaves, dentro de ellos puedo colocar cualquier expresion valida de **JS**.
 
 ![insercion](./images/0002.png?raw=true "Title")
 
@@ -73,10 +73,11 @@ Para insertar una expresion en **JSX**, utilizando llaves, dentro de ellos puedo
 
 Los componentes permiten la reutilizacion de codigo
 . Existen 2 grandes grupos de componentes los **FUNCIONALES** y 
-**BASADOS EN CLASES**.
+**BASADOS EN CLASES**. Los mas recomendables para 
+utilizar son los componentes **FUNCIONALES** ya que necesitan
+menor cantidad de lineas de codigo gracias a los **HOOKS**.
 
 ### Funcionales
-
 Son funciones que retornan una unica etiqueta de **HTML**. Para 
 llamar un componente un funcional se debe utilizar la nomenclatura clasica de **HTML**.
 
@@ -90,4 +91,15 @@ los componentes que se le pasan a un **props** se deben utilizar
 llaves aunque para los datos de tipo **String** son opcionales.
 
 ![insercion](./images/0004.png?raw=true "Title")
+
+### Clases
+Son clases que extienden de **React.Component** y debe implementar 
+un metodo **render** el cual renderiza el componente.
+
+Los componentes basados en clases soportan una actualizacion dinamica, utilizando una variable de clase **state** y para actulizar el componente se
+utiliza el metodo *setState*. 
+
+**ACLARACION**: Para los metodos que utilicen **this** es recomendable utilizar
+el metodo **bind( this )** para todos los metodos que lo requieran.
+Es recomendable utilizar inicializadores de propiedades.
 
