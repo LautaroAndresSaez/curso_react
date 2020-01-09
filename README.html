@@ -1,0 +1,189 @@
+<html>
+      <head>
+        <meta charset="UTF-8">
+        <title>README.md</title>
+      </head>
+      <body>
+        <h1 id="1-fundamentos-de-las-herramientas-de-desarrollo-orange_book-">1-Fundamentos de las herramientas de desarrollo :orange_book:</h1>
+<p>Veremos herramientas utiles para el desarrollo con <strong>REACT</strong> como <strong>NPM</strong>, <strong>BABEL</strong>, <strong>WEBPACK</strong> aunque tambien
+se utilizaran </p>
+<h2 id="entorno-de-desarrollo-de-react-js">Entorno de desarrollo de REACT JS</h2>
+<p>Se puede implementar <strong>REACT</strong> utilizando la libreria sin compilar pero lo mas recomendado es utilizar
+<strong>JSX</strong> el cual es un lenjuage compilado.
+Para la implementacion de <strong>REACT</strong> se utilizara el modulo <em>create-react-app</em>.</p>
+<h2 id="explicacion-de-npm-webpack-y-babel">Explicacion de NPM, Webpack y babel</h2>
+<p><strong>NPM</strong>: Es un gestor de modulos de JS.</p>
+<p><strong>BABEL</strong>: Es un traductor de codigo JS con estandares nuevos, lo que permite que el projecto sea
+utilizable en cualquier navegador, aunque este no soporte los ultimos estandares del <strong>ecmascript</strong>.</p>
+<p><strong>WEBPACK</strong>: Permite ulizar modulos para reutilizar codigos, es muy util utilizarlo junto con <strong>BABEL</strong>.</p>
+<h2 id="chrome-devtools">Chrome DevTools</h2>
+<p>Para abrir las <strong>DevTools</strong> se utiliza <em>ctrl+shift+i</em>.</p>
+<p>Las <strong>DevTools</strong> posee  una <em>consola</em> la cual permite una interaccion
+entre el programa y el navegador.</p>
+<h2 id="creando-stack-con-react">Creando Stack con REACT</h2>
+<p>Para crear una app de <strong>REACT</strong> utilizamos el comando <strong>CREATE-REACT-APP <em>nombre app</em></strong>, este comando puede ser instalado con <strong>NPM</strong>.</p>
+<h2 id="comandos-utiles">Comandos utiles</h2>
+<ul>
+<li><strong>NPM START</strong>: Ejecuta la aplicacion en un servidor local.</li>
+<li><strong>NPM RUN</strong>: </li>
+</ul>
+<h2 id="estructura-del-proyecto">Estructura del proyecto</h2>
+<p>Dentro de la carpeta <strong>public</strong> se encuentra el <strong>INDEX.html</strong> en el cual se puede encontrar un <em>div</em> de clase <em>root</em> que en donde se generara nuestra aplicacion. 
+El archivo <strong>manifest.json</strong> se encuentra las cosas necesarias para realizar una <strong>PWA</strong>.</p>
+<p>Dentro de la carpeta <strong>src</strong> se encuentran todos los archivos de la aplicacion
+, en el <strong>Index.js</strong> se encuentra importa el modulo <em>serviceWorker</em> junto con el archivo <strong>serviceWorker.js</strong> se utiliza
+para generar una <strong>PWA</strong>.</p>
+<h1 id="2-introduccion-react-core">2-Introduccion REACT CORE</h1>
+<p>Esta seccion permite comprender el entorno de <strong>REACT</strong>, y todo su entorno como <strong>JSX</strong> y las <strong>expresiones</strong> las cuales permiten generar codigo <em>html</em> de forma de reutilizar codigo. 
+Junto con la aplicacion de codigo de <strong>CSS</strong> para mejor las paginas web.</p>
+<p>Los temas vistos en esta seccion son:</p>
+<ol>
+<li>Introduccion a JSX</li>
+<li>Componentes</li>
+<li>JSX en profundidad</li>
+<li>Ecmascript 6</li>
+<li>Manejo de Eventos</li>
+<li>Extras</li>
+</ol>
+<h2 id="introduccion-a-jsx">Introduccion a JSX</h2>
+<p><strong>JSX</strong> es una combinacion entre <strong>JS</strong> y <strong>HTML</strong> la cual permite indexar directamente <strong>HTML</strong> en codigo <strong>JS</strong>.</p>
+<h3 id="creacion-de-elementos-e-insercion-en-el-dom">Creacion de elementos e insercion en el DOM</h3>
+<p>Utilizar <strong>REACT</strong> debo importar el modulo <strong><em>React</em></strong> y <strong><em>ReactDOM</em></strong>.</p>
+<p><img src="./images/0001.png?raw=true" alt="insercion" title="Title"></p>
+<h3 id="expresiones">Expresiones</h3>
+<p>Para insertar una expresion en <strong>JSX</strong>, utilizando llaves, dentro de ellos puedo colocar cualquier expresion valida de <strong>JS</strong>.</p>
+<p><img src="./images/0002.png?raw=true" alt="insercion" title="Title"></p>
+<h2 id="componentes">Componentes</h2>
+<p>Los componentes permiten la reutilizacion de codigo
+. Existen 2 grandes grupos de componentes los <strong>FUNCIONALES</strong> y 
+<strong>BASADOS EN CLASES</strong>. Los mas recomendables para 
+utilizar son los componentes <strong>FUNCIONALES</strong> ya que necesitan
+menor cantidad de lineas de codigo gracias a los <strong>HOOKS</strong>.</p>
+<h3 id="funcionales">Funcionales</h3>
+<p>Son funciones que retornan una unica etiqueta de <strong>HTML</strong>. Para 
+llamar un componente un funcional se debe utilizar la nomenclatura clasica de <strong>HTML</strong>.</p>
+<p><img src="./images/0003.png?raw=true" alt="insercion" title="Title"></p>
+<h3 id="props">Props</h3>
+<p>Las <strong>props</strong> son variables de entrada de los componentes,
+los componentes que se le pasan a un <strong>props</strong> se deben utilizar
+llaves aunque para los datos de tipo <strong>String</strong> son opcionales.</p>
+<p><img src="./images/0004.png?raw=true" alt="insercion" title="Title"></p>
+<h3 id="clases">Clases</h3>
+<p>Son clases que extienden de <strong>React.Component</strong> y debe implementar 
+un metodo <strong>render</strong> el cual renderiza el componente.</p>
+<p>Los componentes basados en clases soportan una actualizacion dinamica, utilizando una variable de clase <strong>state</strong> y para actulizar el componente se
+utiliza el metodo <em>setState</em>. </p>
+<p><strong>ACLARACION</strong>: Para los metodos que utilicen <strong>this</strong> es recomendable utilizar
+el metodo <strong>bind( this )</strong> para todos los metodos que lo requieran.
+Es recomendable utilizar inicializadores de propiedades.</p>
+<h4 id="inicializadores-de-propiedades">Inicializadores de Propiedades</h4>
+<p>Se crea un atributo fuera del constructor y permite presindir del mismo
+ya que la unica llamada necesaria es la del constructor del padre.</p>
+<p><img src="./Images/00005.png" alt="Inicializadores de propiedades"></p>
+<h2 id="factorizacion-de-componentes">Factorizacion de componentes</h2>
+<p>Es muy recomendable tener los componentes separados en diferentes carpetas, para lograr tener el codigo mucho mas ordenado.</p>
+<h2 id="jsx-en-profundidad">JSX en profundidad</h2>
+<p>Los componentes deben comenzar con mayuscula, ya que sino <strong>Babel</strong> no tomara como valido.</p>
+<p>Para agregar una clase a una etiqueta se utiliza <strong>className</strong>.</p>
+<p><strong>JSX</strong> permite declarar modulos de componentes, es decir, es posible 
+crear objetos <strong>JSON</strong> donde cada atributo sea un componente.</p>
+<h2 id="css-en-react">CSS en React</h2>
+<p>Para indexar codigo <strong>CSS</strong> debo colocar el atributo <strong>style</strong> y pasar
+como argumento un objeto que contenga las propiedades.</p>
+<p><img src="./Images/0006.png" alt="Inicializadores de propiedades"></p>
+<p>Si el estilo posee un gion medio (-) se utiliza la notacion <strong>camelCase</strong>.
+<strong>JSX</strong> permite la implementacion de operadores ternarios dentro de los objetos, lo cual hace mucho mas sencilla la implementacion
+de estilos segun los estados.</p>
+<p><img src="./Images/00007.png" alt="Inicializadores de propiedades"></p>
+<h3 id="css-utilizando-clases">CSS utilizando clases</h3>
+<p>Es recomendable utilizar dentro de cada carpeta del componente
+sus estilos, lo que permite tener componentes aun mas modularizados.
+<strong>JSX</strong> permite importar archivos <strong>CSS</strong> directamente, esto sucede gracias
+al paquete de <strong>WebPack</strong>.</p>
+<p><img src="./Images/0008.png" alt="Inicializadores de propiedades"></p>
+<h3 id="sistemas-de-modulos">Sistemas de Modulos</h3>
+<p>Cuando se desea utilizar un sistema de modulos de <strong>CSS</strong> el arvhivo debe ser nombrado de la siguiente forma:</p>
+<p><strong><em>nombre</em>.modules.css</strong></p>
+<h2 id="ecmascript-6">Ecmascript 6</h2>
+<h3 id="object-assing-1-">Object.assing() :+1:</h3>
+<p>Este metodo sirve para combinar objetos, pero si existe una coincidencia entre los atributos de los objetos
+estas seran sobreescritas por la ultima encontrada.
+La solucion de este problema puede es utilizar el metodo <strong>Assing</strong> sobre los atributos que se pisan creando un objetonuevo dentro de ese atributo.</p>
+<h3 id="operador-spread-">Operador Spread [ <em>...</em> ]</h3>
+<p>Cuando poseo objetos dentro de objetos se utiliza el operador
+<strong>Spread</strong>. El cual remplaza al metodo <strong>Assing</strong> con una sintaxis mucho mas amigable.</p>
+<p><img src="./Images/0009.png" alt="Inicializadores de propiedades"></p>
+<p>EL operador <strong>spread</strong> sirve para concatenar <strong>arrays</strong> de una forma muy util</p>
+<h4 id="pasando-props-con-spread">Pasando props con Spread</h4>
+<p>Podemos utilizar el operador <strong>Spread</strong> para pasar parametros a los componetes de la forma:</p>
+<p><img src="./Images/0011.png" alt="Inicializadores de propiedades"></p>
+<h3 id="mutacion-de-componenetes-utilizando-funciones">Mutacion de componenetes utilizando funciones</h3>
+<p>Debido a que el metodo <strong>setState</strong> es asincrono es muy util utilizar una funcion de callback dentro del
+metodo.</p>
+<p><img src="./Images/0010.png" alt="Inicializadores de propiedades"></p>
+<h2 id="manejo-de-eventos">Manejo de eventos</h2>
+<h3 id="eventos-de-mouse">Eventos de Mouse</h3>
+<p>Exiten varios tipos de eventos de <em>Mouse</em> utiles cuando se desea utilizar <strong>REACT</strong>,
+algunos de ellos son:</p>
+<ul>
+<li>onClick</li>
+<li>onMouseDown</li>
+<li>onMouseUp</li>
+<li>onMouseMove</li>
+</ul>
+<p>Para mayor informacion se recomienda ir a la pagina oficial de <strong>REACT</strong>.</p>
+<h3 id="eventos-tipo-input">Eventos tipo Input</h3>
+<p>Las etiquetas de <strong>Input</strong> poseen eventos muy utiles como:</p>
+<ul>
+<li>onChange</li>
+<li>onPaste</li>
+<li>onCopy</li>
+</ul>
+<p>Los cuales ayudan a manejar la web de forma dinamica.</p>
+<h3 id="crear-eventos-personalizados-en-react">Crear eventos personalizados en REACT</h3>
+<p><strong>REACT</strong> permite crear eventos personalizados, lo que hasta ahora lo hemos visto como <strong>props</strong> aunque ahora podremos pasar 
+informacion de un componente padre a un componente hijo y viceversa.</p>
+<p>En el componenete padre utilizamos:</p>
+<p><img src="./Images/0012.png" alt="Inicializadores de propiedades"></p>
+<p>Mientras que en el componente hijo se utiliza</p>
+<p><img src="./Images/0013.png" alt="Inicializadores de propiedades"></p>
+<h2 id="extras">Extras</h2>
+<h3 id="inyectando-html-en-componentes">Inyectando HTML en componentes</h3>
+<p>Si bien esta practica esta desaconsejada, en algunas ocasiones puede ser util
+esto se logra utilizando el atributo <strong><em>dangerouslySetInnerHTML</em></strong> y pasandole un <strong>JSON</strong> con el atributo <strong>__html</strong>.</p>
+<h3 id="prop-especial-childen">Prop especial childen</h3>
+<p>Si se desea utilizar etiquetas dentro de elementos componentes se puede utilizar la <strong>prop</strong> <strong>children</strong>, para ello
+es necesatrio abrir y cerrar la etiqueta del componente.</p>
+<p><img src="./Images/0014.png" alt="Inicializadores de propiedades"></p>
+<h3 id="destructuracion-avanzada">Destructuracion avanzada</h3>
+<p>La destructuracion nos permite que el codigo sea mucho mas legible, y menos confuso.</p>
+<p><img src="./Images/0015.png" alt="Inicializadores de propiedades"></p>
+<p>Es valido utilizar valores por defecto y destructuracion concatenada</p>
+<p><img src="./Images/0016.png" alt="Inicializadores de propiedades"></p>
+<h3 id="elementos-sin-etiquetas-con-fragment">Elementos sin etiquetas con <em>fragment</em></h3>
+<p>El <strong>fragment</strong> es una etiqueta de <strong>REACT</strong> que permite omitir la envoltura de etiquetas en los componentes,
+las formas de utilizar esta etiqueta son:</p>
+<p><img src="./Images/0017.png" alt="Inicializadores de propiedades"></p>
+<h3 id="portals">Portals</h3>
+<p>Los portals permiten renderizar etiquetas en otra etiqueta que no se <strong>root</strong>, lo cual es muy
+util a la hora de hacer modals.</p>
+<p><img src="./Images/0018.png" alt="Inicializadores de propiedades"></p>
+<p>Para utilizar el modal debo llamar el componenete en mi <strong>App.js</strong>.</p>
+<p><strong>ACLARACION: SE DEBE CREAR UN DIV CON EL ID <em>modal-root</em>, pues</strong>
+<strong>REACT no es magico.</strong></p>
+<h3 id="control-de-datos-de-entrada">Control de datos de entrada</h3>
+<p>Para utilizar el control de datos es necesario utilizar el modulo <strong>PropTypes</strong> de <strong>JS</strong>, el cual se puede instalar con
+<strong>NPM</strong> mediante el comando <strong>npm i prop-types</strong>.</p>
+<p>Cuando se desea utilizar el control de datos, se debe implementar de la forma:</p>
+<p><img src="./Images/0019.png" alt="Inicializadores de propiedades"></p>
+<p>Donde en este caso <strong>Profile</strong> es un componente basado en clases, pero la nomenclatura para componentes <strong>funcionales</strong> es la misma.</p>
+<h3 id="datos-de-entrada-por-defecto">Datos de entrada por defecto</h3>
+<p>Como es posible la comprobacion de datos, tambien se puede definir valores por defecto a las <strong>props</strong>,
+implementacion es identica a la de las <strong>proptypes</strong>, con la unica diferencia que debo llamar el atributo
+<strong>defaultProps</strong></p>
+<h1 id="3-iterando-listas">3-Iterando Listas</h1>
+<p>En este apartado se tratara el tema de <strong>iteradores</strong>, ya sea sobre <strong>arrays</strong>, <strong>JSON arrays</strong> y <strong>JSON</strong>.</p>
+<p>1.</p>
+
+      </body>
+    </html>

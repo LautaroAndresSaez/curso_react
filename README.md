@@ -1,4 +1,4 @@
-# 1-Fundamentos de las herramientas de desarrollo
+# 1-Fundamentos de las herramientas de desarrollo :orange_book:
 
 Veremos herramientas utiles para el desarrollo con **REACT** como **NPM**, **BABEL**, **WEBPACK** aunque tambien
 se utilizaran 
@@ -52,6 +52,10 @@ Los temas vistos en esta seccion son:
 
 1. Introduccion a JSX
 2. Componentes
+3. JSX en profundidad
+4. Ecmascript 6
+5. Manejo de Eventos
+6. Extras
 
 ## Introduccion a JSX
 
@@ -103,3 +107,184 @@ utiliza el metodo *setState*.
 el metodo **bind( this )** para todos los metodos que lo requieran.
 Es recomendable utilizar inicializadores de propiedades.
 
+#### Inicializadores de Propiedades
+
+Se crea un atributo fuera del constructor y permite presindir del mismo
+ya que la unica llamada necesaria es la del constructor del padre.
+
+![Inicializadores de propiedades](./Images/00005.png)
+
+## Factorizacion de componentes
+
+Es muy recomendable tener los componentes separados en diferentes carpetas, para lograr tener el codigo mucho mas ordenado.
+
+## JSX en profundidad
+
+Los componentes deben comenzar con mayuscula, ya que sino **Babel** no tomara como valido.
+
+Para agregar una clase a una etiqueta se utiliza **className**.
+
+**JSX** permite declarar modulos de componentes, es decir, es posible 
+crear objetos **JSON** donde cada atributo sea un componente.
+
+## CSS en React
+
+Para indexar codigo **CSS** debo colocar el atributo **style** y pasar
+como argumento un objeto que contenga las propiedades.
+
+![Inicializadores de propiedades](./Images/0006.png)
+
+Si el estilo posee un gion medio (-) se utiliza la notacion **camelCase**.
+**JSX** permite la implementacion de operadores ternarios dentro de los objetos, lo cual hace mucho mas sencilla la implementacion
+de estilos segun los estados.
+
+![Inicializadores de propiedades](./Images/00007.png)
+
+### CSS utilizando clases
+
+Es recomendable utilizar dentro de cada carpeta del componente
+sus estilos, lo que permite tener componentes aun mas modularizados.
+**JSX** permite importar archivos **CSS** directamente, esto sucede gracias
+al paquete de **WebPack**.
+
+![Inicializadores de propiedades](./Images/0008.png)
+
+### Sistemas de Modulos
+
+Cuando se desea utilizar un sistema de modulos de **CSS** el arvhivo debe ser nombrado de la siguiente forma:
+
+***nombre*.modules.css**
+
+## Ecmascript 6
+
+### Object.assing() :+1:
+
+Este metodo sirve para combinar objetos, pero si existe una coincidencia entre los atributos de los objetos
+estas seran sobreescritas por la ultima encontrada.
+La solucion de este problema puede es utilizar el metodo **Assing** sobre los atributos que se pisan creando un objetonuevo dentro de ese atributo.
+
+### Operador Spread [ *...* ] 
+
+Cuando poseo objetos dentro de objetos se utiliza el operador
+**Spread**. El cual remplaza al metodo **Assing** con una sintaxis mucho mas amigable.
+
+![Inicializadores de propiedades](./Images/0009.png)
+
+EL operador **spread** sirve para concatenar **arrays** de una forma muy util
+
+#### Pasando props con Spread
+
+Podemos utilizar el operador **Spread** para pasar parametros a los componetes de la forma:
+
+![Inicializadores de propiedades](./Images/0011.png)
+
+ 
+### Mutacion de componenetes utilizando funciones
+
+Debido a que el metodo **setState** es asincrono es muy util utilizar una funcion de callback dentro del
+metodo.
+
+![Inicializadores de propiedades](./Images/0010.png)
+
+## Manejo de eventos
+
+### Eventos de Mouse
+Exiten varios tipos de eventos de *Mouse* utiles cuando se desea utilizar **REACT**,
+algunos de ellos son:
+
+* onClick
+* onMouseDown
+* onMouseUp
+* onMouseMove
+  
+Para mayor informacion se recomienda ir a la pagina oficial de **REACT**.
+
+### Eventos tipo Input
+Las etiquetas de **Input** poseen eventos muy utiles como:
+
+* onChange
+* onPaste
+* onCopy
+
+Los cuales ayudan a manejar la web de forma dinamica.
+
+### Crear eventos personalizados en REACT
+
+**REACT** permite crear eventos personalizados, lo que hasta ahora lo hemos visto como **props** aunque ahora podremos pasar 
+informacion de un componente padre a un componente hijo y viceversa.
+
+En el componenete padre utilizamos:
+
+![Inicializadores de propiedades](./Images/0012.png)
+
+Mientras que en el componente hijo se utiliza
+
+![Inicializadores de propiedades](./Images/0013.png)
+
+
+
+## Extras
+
+### Inyectando HTML en componentes
+
+Si bien esta practica esta desaconsejada, en algunas ocasiones puede ser util
+esto se logra utilizando el atributo ***dangerouslySetInnerHTML*** y pasandole un **JSON** con el atributo **__html**.
+
+### Prop especial childen
+
+Si se desea utilizar etiquetas dentro de elementos componentes se puede utilizar la **prop** **children**, para ello
+es necesatrio abrir y cerrar la etiqueta del componente.
+
+![Inicializadores de propiedades](./Images/0014.png)
+
+### Destructuracion avanzada
+
+La destructuracion nos permite que el codigo sea mucho mas legible, y menos confuso.
+
+![Inicializadores de propiedades](./Images/0015.png)
+
+Es valido utilizar valores por defecto y destructuracion concatenada
+
+![Inicializadores de propiedades](./Images/0016.png)
+
+### Elementos sin etiquetas con *fragment*
+
+El **fragment** es una etiqueta de **REACT** que permite omitir la envoltura de etiquetas en los componentes,
+las formas de utilizar esta etiqueta son:
+
+![Inicializadores de propiedades](./Images/0017.png)
+
+### Portals
+
+Los portals permiten renderizar etiquetas en otra etiqueta que no se **root**, lo cual es muy
+util a la hora de hacer modals.
+
+![Inicializadores de propiedades](./Images/0018.png)
+
+Para utilizar el modal debo llamar el componenete en mi **App.js**.
+
+**ACLARACION: SE DEBE CREAR UN DIV CON EL ID *modal-root*, pues**
+**REACT no es magico.**
+
+### Control de datos de entrada
+
+Para utilizar el control de datos es necesario utilizar el modulo **PropTypes** de **JS**, el cual se puede instalar con
+**NPM** mediante el comando **npm i prop-types**.
+
+Cuando se desea utilizar el control de datos, se debe implementar de la forma:
+
+![Inicializadores de propiedades](./Images/0019.png)
+
+Donde en este caso **Profile** es un componente basado en clases, pero la nomenclatura para componentes **funcionales** es la misma.
+
+### Datos de entrada por defecto
+
+Como es posible la comprobacion de datos, tambien se puede definir valores por defecto a las **props**,
+implementacion es identica a la de las **proptypes**, con la unica diferencia que debo llamar el atributo
+**defaultProps**
+
+# 3-Iterando Listas
+
+En este apartado se tratara el tema de **iteradores**, ya sea sobre **arrays**, **JSON arrays** y **JSON**.
+
+1.
