@@ -287,4 +287,43 @@ implementacion es identica a la de las **proptypes**, con la unica diferencia qu
 
 En este apartado se tratara el tema de **iteradores**, ya sea sobre **arrays**, **JSON arrays** y **JSON**.
 
-1.
+1. Iteracion de Arrays
+2. Iterando propiedades de JSON
+3. Propiedad KEY
+4. Informacion de los datos iterados
+
+## Iteracion de Arrays
+
+Para iterar un array en **REACT** se hace uso del metodo ***map*** que poseen los arrays, y junto con la notacion
+de **JSX** se retorna un elemento **HTML**.
+
+![Inicializadores de propiedades](./Images/0020.png)
+
+**ACLARACION: los arrays pueden contener objetos tales como los JSON.**
+
+## Iternado propiedades de JSON
+
+Para iterar las **keys** de un objeto **JSON** se debo implementar de la siguiente forma:
+
+![Inicializadores de propiedades](./Images/0021.png)
+
+## Propiedad KEY
+
+Al recorrer **Array** es necesario definir un atributo **key** a las etiqueas, es muy recomendable utilizar el atributo
+**ID** que viene de la base de datos. 
+
+El beneficio de esta implementacion es que permite que el navegador renderice aquellos elementos que han mutado.
+
+## Informacion de los datos iterados
+
+Para pasar informacion del dato iterado se puede utilizar el metodo **bind** y pasarle como parametros **this** y **DATO**.
+
+![Inicializadores de propiedades](./Images/0022.png)
+
+# 4- Entendiendo las Refs
+
+Las **REFS** son referencias en el **DOM**, que vienen a remplazar los metodos clasicos de **JS**, como
+> document.getElementById() 
+
+entre otros.
+

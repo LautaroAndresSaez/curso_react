@@ -183,7 +183,33 @@ implementacion es identica a la de las <strong>proptypes</strong>, con la unica 
 <strong>defaultProps</strong></p>
 <h1 id="3-iterando-listas">3-Iterando Listas</h1>
 <p>En este apartado se tratara el tema de <strong>iteradores</strong>, ya sea sobre <strong>arrays</strong>, <strong>JSON arrays</strong> y <strong>JSON</strong>.</p>
-<p>1.</p>
+<ol>
+<li>Iteracion de Arrays</li>
+<li>Iterando propiedades de JSON</li>
+<li>Propiedad KEY</li>
+<li>Informacion de los datos iterados</li>
+</ol>
+<h2 id="iteracion-de-arrays">Iteracion de Arrays</h2>
+<p>Para iterar un array en <strong>REACT</strong> se hace uso del metodo <strong><em>map</em></strong> que poseen los arrays, y junto con la notacion
+de <strong>JSX</strong> se retorna un elemento <strong>HTML</strong>.</p>
+<p><img src="./Images/0020.png" alt="Inicializadores de propiedades"></p>
+<p><strong>ACLARACION: los arrays pueden contener objetos tales como los JSON.</strong></p>
+<h2 id="iternado-propiedades-de-json">Iternado propiedades de JSON</h2>
+<p>Para iterar las <strong>keys</strong> de un objeto <strong>JSON</strong> se debo implementar de la siguiente forma:</p>
+<p><img src="./Images/0021.png" alt="Inicializadores de propiedades"></p>
+<h2 id="propiedad-key">Propiedad KEY</h2>
+<p>Al recorrer <strong>Array</strong> es necesario definir un atributo <strong>key</strong> a las etiqueas, es muy recomendable utilizar el atributo
+<strong>ID</strong> que viene de la base de datos. </p>
+<p>El beneficio de esta implementacion es que permite que el navegador renderice aquellos elementos que han mutado.</p>
+<h2 id="informacion-de-los-datos-iterados">Informacion de los datos iterados</h2>
+<p>Para pasar informacion del dato iterado se puede utilizar el metodo <strong>bind</strong> y pasarle como parametros <strong>this</strong> y <strong>DATO</strong>.</p>
+<p><img src="./Images/0022.png" alt="Inicializadores de propiedades"></p>
+<h1 id="4-entendiendo-las-refs">4- Entendiendo las Refs</h1>
+<p>Las <strong>REFS</strong> son referencias en el <strong>DOM</strong>, que vienen a remplazar los metodos clasicos de <strong>JS</strong>, como</p>
+<blockquote>
+<p>document.getElementById() </p>
+</blockquote>
+<p>entre otros.</p>
 
       </body>
     </html>
