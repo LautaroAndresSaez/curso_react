@@ -205,11 +205,113 @@ de <strong>JSX</strong> se retorna un elemento <strong>HTML</strong>.</p>
 <p>Para pasar informacion del dato iterado se puede utilizar el metodo <strong>bind</strong> y pasarle como parametros <strong>this</strong> y <strong>DATO</strong>.</p>
 <p><img src="./Images/0022.png" alt="Inicializadores de propiedades"></p>
 <h1 id="4-entendiendo-las-refs">4- Entendiendo las Refs</h1>
-<p>Las <strong>REFS</strong> son referencias en el <strong>DOM</strong>, que vienen a remplazar los metodos clasicos de <strong>JS</strong>, como</p>
+<p>Las <strong>REFS</strong> son referencias en el <strong>DOM</strong>, nos permiten utilizar metodos de las etiquetas <strong>HTML</strong> tales como
+<strong>FOCUS</strong> o <strong>BLUR</strong>.</p>
+<p><img src="./Images/0023.png" alt="Inicializadores de propiedades"></p>
+<p>Para implementar accesos al <strong>DOM</strong> existe la opcion de utilizar las <strong>REFS</strong> con el metodo:</p>
 <blockquote>
-<p>document.getElementById() </p>
+<p>this.refs_name.current</p>
 </blockquote>
-<p>entre otros.</p>
+<h2 id="envio-de-la-prop-especial-ref-con-forwardref">Envio de la prop especial ref con <em>forwardref</em></h2>
+<p>Con el metodo <strong>forwardref</strong> puedo enviar una <strong>REF</strong> de un componente padre a un componente hijo, con la salvedad de que el hijo debe 
+ser funcional.</p>
+<p><img src="./Images/0024.png" alt="Inicializadores de propiedades"></p>
+<h1 id="5-formularios">5- Formularios</h1>
+<p>Existen 2 formas de obtener informacion de <strong>inputs</strong> en <strong>REACT</strong>, las cuales son:</p>
+<h2 id="inputs-no-controlados">Inputs no controlados</h2>
+<p>1- Utilizando <strong>REFS</strong> es los inputs
+2- Utilizando una etiqueta <strong>form</strong> y en el metodo que llame la accion <strong>onSubmit</strong> usar el <strong>event</strong> 
+para acceder a los diferentes inputs.</p>
+<p><img src="./Images/0025.png" alt="Inicializadores de propiedades"></p>
+<h3 id="ventajas">Ventajas</h3>
+<ul>
+<li>Codigo facil de crear</li>
+<li>Muy similar a codigo <strong>HTML</strong></li>
+</ul>
+<h3 id="desventajas">Desventajas</h3>
+<ul>
+<li>no permite la validacion mientras la informacion cambia</li>
+</ul>
+<h2 id="inputs-controlados">Inputs controlados</h2>
+<p>Los inputs controlados se pueden implementar mediante:</p>
+<p>El uso de la variable <strong>state</strong>.</p>
+<p><img src="./Images/0026.png" alt="Inicializadores de propiedades"></p>
+<h2 id="etiquetas-de-formularios">Etiquetas de Formularios</h2>
+<h3 id="select">Select</h3>
+<p>Esta etiqueta permite que la seleccion de una lista de opciones, para leer el valor obtenido
+es recomendable utilizar inputs controlados.</p>
+<h3 id="checkbox">Checkbox</h3>
+<p>Permite seleccionar una propiedad, por ejemplo, si el usuario desea recibir emails. Se utiliza igual que cualquier input controlado.</p>
+<h1 id="6-debugging">6- Debugging</h1>
+<h2 id="chrome-dev-tools">Chrome Dev Tools</h2>
+<p>Chrome posse una extension de <strong>REACT</strong> la cual hace mas sencillo el debugging de las webs con este framework.</p>
+<p>Esta herramienta incluye 2 nuevas ventanas a la herramienta de inspeccion de chrome, las cuales son <strong>components</strong> y <strong>profile</strong>.</p>
+<h3 id="components">Components</h3>
+<p>Muestra los componentes incluidos en la web, muy parecido a la inspeccion de elementos, pero separado por componentes.</p>
+<h3 id="profiler">Profiler</h3>
+<p>Permite crear perfiles de lo que sucede en un determinado tiempo del componente, analizando el tiempo que tarda el componente en actulizarce.</p>
+<h2 id="manejo-y-limite-de-errores-dentro-de-componentes">Manejo y limite de errores dentro de componentes</h2>
+<p><strong>REACT</strong> permite utilizar un metodo llamador <strong>componentDidCatch</strong> el cual se puede implementar en cualquier componenete y 
+permite mostrar una vista alternativa cuando sucede un error. Es recomendable
+implementar una clase que maneje lo errores y que renderice a los elementos hijos cuando todo anda bien y cuando no, renderice una
+vista personalizada.</p>
+<p>Este metodo puede tener dos parametros de entrada:
+1- <strong>error</strong>: contiene el tipo de error.
+2- <strong>errorInfo</strong>: contiene la descripcion del error.</p>
+<h1 id="7-solicitudes-http">7- Solicitudes HTTP</h1>
+<p>Si bien <strong>REACT</strong> no posee modulos propios para las solicitudes <strong>HTTP</strong> es posible utilizar distintos metodos para
+la implementacion de dichas peticiones.</p>
+<h2 id="peticiones-fetch">Peticiones Fetch</h2>
+<p>Una forma de realizar peticiones <strong>HTTP</strong> es utilizar la funcion <strong>fetch</strong>, la cual proviene de JS vanilla, debemos recordar que la misma
+devuelve una promesa, por lo tanto se debe utilizar el metodo <strong>then</strong> para obtener los resultados.</p>
+<p><img src="./Images/0027.png" alt="Inicializadores de propiedades"></p>
+<h2 id="peticiones-con-axios">Peticiones con Axios</h2>
+<p>Axios es una libreria de <strong>JS</strong> que permite dar soporte a navegador antiguos.</p>
+<p><img src="./Images/0028.png" alt="Inicializadores de propiedades"></p>
+<h2 id="async-y-await-para-solicitudes-htpp">Async y Await para solicitudes HTPP</h2>
+<p>Las sentencias <strong>async</strong> y <strong>await</strong> permiten hacer que el codigo asincrono parezca codigo sincrono, esperando
+una respuesta del servidor antes de seguir ejecutar ciertas lineas de codigo.</p>
+<p><img src="./Images/0029.png" alt="Inicializadores de propiedades"></p>
+<h1 id="8-metodos-de-los-ciclos-de-vida-de-los-componentes">8- Metodos de los ciclos de vida de los componentes</h1>
+<p>Los metodos de ciclos de vida son solo validos en componentes basados en clases, para componentes
+funcionales existen los <strong>HOOKS</strong>, los cuales se veran en otra seccion.</p>
+<p><img src="./Images/0030.png" alt="Inicializadores de propiedades"></p>
+<h2 id="constructor">Constructor</h2>
+<p>Es el primer metodoen ejecutarse, y sirve para preestablecer valores del estado o para pasar el contexto adecuado
+a un metodo, utilizando <strong>bind</strong>, o crear las <strong>refs</strong> necesarias.</p>
+<h2 id="render">Render</h2>
+<p>Es el encargado de renderizar el componente, y es el unico metodo obligatorio que debemos implementar <strong>siempre</strong>, como lo hemos venido haciendo
+a lo largo de este curso.</p>
+<h2 id="componentdidmount">componentDidMount</h2>
+<p>Se ejecuta luego del render, durante el montaje, y es un excelente lugar para realizar solicitudes HTTP</p>
+<h2 id="componentdidupdate">componentDidUpdate</h2>
+<p>Es un metodo identico al anterior solo que se ejecuta cada vez que sucede una actualizacion, es decir,
+cuando se ejecuta un cambio en el <strong>state</strong> del componente, un cambio en las <strong>props</strong> recibidas
+o cuando se fuerza la actulizacion del componenete.</p>
+<p>Este metodo es util para realizar solicitudes <strong>HTTP</strong> que dependan de alguna <strong>prop</strong>.</p>
+<p><strong>DATO: el metodo puede recibir como primer dato las props previas y como segundo dato las nuevas props, lo cual</strong>
+<strong>es util para ahorrar datos a la hora de hacer solicitudes HTTP.</strong></p>
+<h2 id="getsnapshotbeforeupdate">getSnapshotBeforeUpdate</h2>
+<p>Se ejecuta inmediatamente luego del render y antes de actualizar el <strong>DOM</strong>, lo cual nos permite capturar
+datos del <strong>DOM</strong> antes de su actualizacion.</p>
+<p>El valor que retorna este metodo llega al metodo componentDidUpdate.</p>
+<h2 id="getdeliverystatefromprops">getDeliveryStateFromProps</h2>
+<p>Es muy poco frecuente la implementacion de este metodo <strong>estatico</strong>, por lo cual no se puede acceder a propiedades del componente
+, su utilidad principal es actualizar al <strong>props</strong> de forma dinamica, como entrada posee <strong>nextProp</strong> y el <strong>prevState</strong>.</p>
+<p>Este metodo debe retornar un <strong>JSON</strong> el cual se mezclara con el <strong>state</strong> actual.</p>
+<h2 id="shouldcomponentupdate">shouldComponentUpdate</h2>
+<p>Se ejecuta antes del render y decide si el render se realizara o no. Este metodo debe retornar si o si un valor booleano, ya que
+sino <strong>REACT</strong> marcara un error.</p>
+<p>Es usual utilizar este metodo para optimizar el rendimiendo de la web app, renderizando solo los elementos que cambian entre 
+las diferentes actulizaciones.</p>
+<h2 id="purecomponent">PureComponent</h2>
+<p>Es una clase que permite realizar lo mismo que <strong>shouldComponentUpdate</strong>, este es util para implementar en componentes
+que se vayan a utilizar para iteraciones.</p>
+<p><strong>ACLARACION: toda clase que herede de PureComponent solo realizara comparariones de propiedades de 1er nivel, si alguna propiedad es un JSON que</strong>
+<strong>tiene otro JSON indexado la actualizacion sera erronea.</strong></p>
+<h2 id="componentwillunmount">componentWillUnmount</h2>
+<p>Es el unico metodo se aplica cuando el componente es destruido. Y se utiliza para limpiar <strong>timers</strong>, <strong>listeners</strong> o <strong>metodos del padre</strong>.</p>
+<h1 id="9-composicion-y-comunicacion-entre-componentes">9- Composicion y comunicacion entre componentes</h1>
 
       </body>
     </html>

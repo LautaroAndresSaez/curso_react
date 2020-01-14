@@ -2,23 +2,34 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+import Entrada from './components/Entrada'
+import Graficas from './components/Graficas'
+import FancyInput from './components/FancyInput'
+
 function App() {
+  const refFancy = React.createRef()
+  const click = () =>{
+    console.log( refFancy );
+    
+  }
+  
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>React Ref</h1>
+
+      <Entrada/>
+
+      <h2> Librerias Externar utilizando <strong> REFS </strong> </h2>
+
+      <Graficas/>
+
+      <h2> Props rewardref </h2>
+
+      <FancyInput ref = { refFancy }  />
+
+      <button onClick = { click } >
+        REF!
+      </button>
     </div>
   );
 }

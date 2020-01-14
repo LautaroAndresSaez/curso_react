@@ -322,8 +322,179 @@ Para pasar informacion del dato iterado se puede utilizar el metodo **bind** y p
 
 # 4- Entendiendo las Refs
 
-Las **REFS** son referencias en el **DOM**, que vienen a remplazar los metodos clasicos de **JS**, como
-> document.getElementById() 
+Las **REFS** son referencias en el **DOM**, nos permiten utilizar metodos de las etiquetas **HTML** tales como
+**FOCUS** o **BLUR**.
 
-entre otros.
+![Inicializadores de propiedades](./Images/0023.png)
+
+Para implementar accesos al **DOM** existe la opcion de utilizar las **REFS** con el metodo:
+
+> this.refs_name.current
+
+## Envio de la prop especial ref con *forwardref*
+
+Con el metodo **forwardref** puedo enviar una **REF** de un componente padre a un componente hijo, con la salvedad de que el hijo debe 
+ser funcional.
+
+![Inicializadores de propiedades](./Images/0024.png)
+
+
+# 5- Formularios
+
+Existen 2 formas de obtener informacion de **inputs** en **REACT**, las cuales son:
+
+## Inputs no controlados
+
+1- Utilizando **REFS** es los inputs
+2- Utilizando una etiqueta **form** y en el metodo que llame la accion **onSubmit** usar el **event** 
+para acceder a los diferentes inputs.
+
+![Inicializadores de propiedades](./Images/0025.png)
+
+### Ventajas
+
+* Codigo facil de crear
+* Muy similar a codigo **HTML**
+
+### Desventajas
+
+* no permite la validacion mientras la informacion cambia
+
+## Inputs controlados
+
+Los inputs controlados se pueden implementar mediante:
+
+El uso de la variable **state**.
+
+![Inicializadores de propiedades](./Images/0026.png)
+
+## Etiquetas de Formularios
+
+### Select
+Esta etiqueta permite que la seleccion de una lista de opciones, para leer el valor obtenido
+es recomendable utilizar inputs controlados.
+
+### Checkbox
+Permite seleccionar una propiedad, por ejemplo, si el usuario desea recibir emails. Se utiliza igual que cualquier input controlado.
+
+# 6- Debugging
+
+## Chrome Dev Tools
+Chrome posse una extension de **REACT** la cual hace mas sencillo el debugging de las webs con este framework.
+
+Esta herramienta incluye 2 nuevas ventanas a la herramienta de inspeccion de chrome, las cuales son **components** y **profile**.
+
+### Components
+
+Muestra los componentes incluidos en la web, muy parecido a la inspeccion de elementos, pero separado por componentes.
+
+### Profiler
+
+Permite crear perfiles de lo que sucede en un determinado tiempo del componente, analizando el tiempo que tarda el componente en actulizarce.
+
+## Manejo y limite de errores dentro de componentes
+
+**REACT** permite utilizar un metodo llamador **componentDidCatch** el cual se puede implementar en cualquier componenete y 
+permite mostrar una vista alternativa cuando sucede un error. Es recomendable
+implementar una clase que maneje lo errores y que renderice a los elementos hijos cuando todo anda bien y cuando no, renderice una
+vista personalizada.
+
+Este metodo puede tener dos parametros de entrada:
+1- **error**: contiene el tipo de error.
+2- **errorInfo**: contiene la descripcion del error.
+
+# 7- Solicitudes HTTP 
+
+Si bien **REACT** no posee modulos propios para las solicitudes **HTTP** es posible utilizar distintos metodos para
+la implementacion de dichas peticiones.
+
+## Peticiones Fetch
+
+Una forma de realizar peticiones **HTTP** es utilizar la funcion **fetch**, la cual proviene de JS vanilla, debemos recordar que la misma
+devuelve una promesa, por lo tanto se debe utilizar el metodo **then** para obtener los resultados.
+
+![Inicializadores de propiedades](./Images/0027.png)
+
+## Peticiones con Axios
+
+Axios es una libreria de **JS** que permite dar soporte a navegador antiguos.
+
+![Inicializadores de propiedades](./Images/0028.png)
+
+## Async y Await para solicitudes HTPP
+
+Las sentencias **async** y **await** permiten hacer que el codigo asincrono parezca codigo sincrono, esperando
+una respuesta del servidor antes de seguir ejecutar ciertas lineas de codigo.
+
+![Inicializadores de propiedades](./Images/0029.png)
+
+# 8- Metodos de los ciclos de vida de los componentes
+
+Los metodos de ciclos de vida son solo validos en componentes basados en clases, para componentes
+funcionales existen los **HOOKS**, los cuales se veran en otra seccion.
+
+![Inicializadores de propiedades](./Images/0030.png)
+
+## Constructor
+
+Es el primer metodoen ejecutarse, y sirve para preestablecer valores del estado o para pasar el contexto adecuado
+a un metodo, utilizando **bind**, o crear las **refs** necesarias.
+
+## Render
+
+Es el encargado de renderizar el componente, y es el unico metodo obligatorio que debemos implementar **siempre**, como lo hemos venido haciendo
+a lo largo de este curso.
+
+## componentDidMount
+
+Se ejecuta luego del render, durante el montaje, y es un excelente lugar para realizar solicitudes HTTP
+
+## componentDidUpdate
+
+Es un metodo identico al anterior solo que se ejecuta cada vez que sucede una actualizacion, es decir,
+cuando se ejecuta un cambio en el **state** del componente, un cambio en las **props** recibidas
+o cuando se fuerza la actulizacion del componenete.
+
+Este metodo es util para realizar solicitudes **HTTP** que dependan de alguna **prop**.
+
+**DATO: el metodo puede recibir como primer dato las props previas y como segundo dato las nuevas props, lo cual**
+**es util para ahorrar datos a la hora de hacer solicitudes HTTP.**
+
+## getSnapshotBeforeUpdate
+
+Se ejecuta inmediatamente luego del render y antes de actualizar el **DOM**, lo cual nos permite capturar
+datos del **DOM** antes de su actualizacion.
+
+El valor que retorna este metodo llega al metodo componentDidUpdate.
+
+## getDeliveryStateFromProps
+
+Es muy poco frecuente la implementacion de este metodo **estatico**, por lo cual no se puede acceder a propiedades del componente
+, su utilidad principal es actualizar al **props** de forma dinamica, como entrada posee **nextProp** y el **prevState**.
+
+Este metodo debe retornar un **JSON** el cual se mezclara con el **state** actual.
+
+## shouldComponentUpdate
+
+Se ejecuta antes del render y decide si el render se realizara o no. Este metodo debe retornar si o si un valor booleano, ya que
+sino **REACT** marcara un error.
+
+Es usual utilizar este metodo para optimizar el rendimiendo de la web app, renderizando solo los elementos que cambian entre 
+las diferentes actulizaciones.
+
+## PureComponent
+
+Es una clase que permite realizar lo mismo que **shouldComponentUpdate**, este es util para implementar en componentes
+que se vayan a utilizar para iteraciones.
+
+**ACLARACION: toda clase que herede de PureComponent solo realizara comparariones de propiedades de 1er nivel, si alguna propiedad es un JSON que**
+**tiene otro JSON indexado la actualizacion sera erronea.**
+
+## componentWillUnmount
+
+Es el unico metodo se aplica cuando el componente es destruido. Y se utiliza para limpiar **timers**, **listeners** o **metodos del padre**.
+
+# 9- Composicion y comunicacion entre componentes
+
+
 

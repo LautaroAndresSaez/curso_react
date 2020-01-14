@@ -1,0 +1,27 @@
+.ocultar {
+  visibility: hidden; }
+
+.poster {
+  height: 200px;
+  float: left; }
+
+.text {
+  float: left;
+  width: 300px;
+  text-align: justify;
+  margin-left: 5px; }
+  .text h2 {
+    margin-top: 0px !important; }
+  .text p {
+    margin-top: 0px;
+    margin-bottom: 0px; }
+
+.pelicula {
+  margin-left: 50px;
+  width: 500px;
+  height: 200px;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: .3em;
+  border: 1px solid #8e8e8e;
+  -webkit-box-shadow: 2px 0px 0px #ccc;
+  box-shadow: 2px 0px 0px #ccc; }

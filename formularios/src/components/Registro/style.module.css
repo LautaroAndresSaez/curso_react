@@ -1,0 +1,21 @@
+.registro {
+  padding-top: 5px auto;
+  margin-left: 150px;
+  border-radius: 2em;
+  width: 400px;
+  height: 200px;
+  background: -webkit-linear-gradient(30deg, #fa1ec8, #c84696);
+  background: -o-linear-gradient(30deg, #fa1ec8, #c84696);
+  background: linear-gradient(60deg, #fa1ec8, #c84696);
+  font-family: Helvetica; }
+  .registro button {
+    float: right;
+    margin-right: 10px;
+    height: auto;
+    width: auto;
+    font-size: 20px;
+    border-radius: 3px; }
+
+.inputs {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  background: rgba(255, 255, 255, 0.3); }
