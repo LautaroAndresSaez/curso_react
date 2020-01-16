@@ -497,7 +497,7 @@ Es el unico metodo se aplica cuando el componente es destruido. Y se utiliza par
 # 9- Composicion y comunicacion entre componentes
 
 En este apartado se vera en profundidad las diferentes formas de comunicacion entre componentes, comenzando desde las mas sencillas
-como **Padre-Hijo** e **Hijo-Padre** hasta algunas mas complejas como 
+como **Padre-Hijo** e **Hijo-Padre** hasta algunas mas complejas como comunicaciones entre cualquier componente sin import su gerarquia.
 
 ## Comunicacion Padre - Hijo
 
@@ -521,3 +521,32 @@ Esta practica es desaconsejable ya que existen dos flujos dentro de la aplicacio
 
 Para comunicar hermanos se debe implementar una **prop** que sea afectada por uno de ellos y el otro pueda observarla, es decir,
 cuando yo haga click en un boton dicho evento debe afectar la **prop** que recibe alguno de sus hermanos.
+
+## Observar Pattern
+
+Para lograr comunicacion entre cualquierar componente a cualquier componente, sin importar cual sea su orden gerarquico,
+para ello se debe utilizar alguna libreria que permita dicha implementacion, la mas conocida a dia de hoy es **PubSub**.
+
+La libreria **PubSub** nos permite mediante el metodo **publish** publicar un evento, tal como se muetras a continuacion:
+
+![Inicializadores de propiedades](./Images/0032.png)
+
+Por otro lado para escuchar el evento se debe utilizar el metodo **suscribe** es en componente que deseemos que escuche
+dicho evento:
+
+![Inicializadores de propiedades](./Images/0033.png)
+
+Es importar desuscribirse cuando el componenete sea destruido, utilizando el metodo **unsuscribe**.
+
+## Variables globales
+
+Es posible utilizar comunicacion entre componenetes mediante contamienacion de variables globales.
+esta practica es desaconsejada, pero puede servir para aplicaciones de prueba.
+
+## Comunicacion con API Context
+
+El **API Context** es una **API** de **REACT** que permite la comunicacion de componentes, mediante un objeto,
+el cual genera los componentes **Provider** el cual posee un atributo **value** que le envia al componente **hijo** que 
+desee recibirlo, y otro componente **Consumer** el cual obtiene los datos.
+
+**Consumer** recibe por primer valor una funcion que optiene el atributo **value**.
