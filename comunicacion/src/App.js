@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
+import PubSub from 'pubsub-js';
 import logo from './logo.svg';
+
+
 import './App.css';
 
-import Hijo from './components/Hijo'
-import Header from './components/Header'
+
 
 
 const style = { 
@@ -14,62 +16,97 @@ const style = {
   width: '300px'
 }
 
-const styleA = {
-  ...style,
-  border: '1px solid red'
+const myContext= React.createContext();
+
+class Abuelo extends React.Component{
+  render(){
+      return(
+          <div className = 'box'>
+              <Padre />
+          </div>
+      )
+  }
 }
 
-const styleB = {
-  ...style,
-  border: '1px solid blue'
+class Padre extends React.Component{
+  render(){
+      return(
+          <div  className = 'box'> 
+              <Hijo />
+          </div>
+      )
+  }
 }
 
-function App() {
 
-  const [ state, setState ] = useState( {
-    countA: 0,
-    countB: 0
-  } )
+class Hijo extends React.Component{
 
-  const Click = (e) =>{
-    console.log( e.saludo );
-
-  }
-
-  const handlerAddA = () => {
-    setState( state =>({
-      ...state,
-      countA: state.countA +1
-    } ))
-  }
-
-  const handlerAddB = () => {
-    setState( state =>({
-      ...state,
-      countB: state.countB +2
-    }) )
-  }
-
-  return (
-    <div className="App"
-          onClick = { Click }
-        >
-      <Hijo  
-          num = { state.countA }
-          styles = { styleA }
-          name = { 'A' }
-          onAdd = { handlerAddB }
-      />
+  handlerClick = () => {
+      console.log( ':3' );
       
-      <Hijo  
-          num = { state.countB }
-          styles = { styleB }
-          name = { 'B' }
-          onAdd = { handlerAddA }
-      />
+  }
 
-    </div>
-  );
+  dataRecive = ( { clicks, addClick } ) =>(
+      <div>
+          <button onClick = { addClick }>
+              CLICK: { clicks }
+          </button>
+      </div>
+  )
+
+  render(){
+
+      return(
+          <myContext.Consumer>
+          {
+              ( context ) => {
+                  return( this.dataRecive( context ) )
+              }
+          }
+          </myContext.Consumer>
+      );
+  }
+}
+
+
+class App extends React.Component {
+
+  state = {
+    clicks: 0
+  }
+
+  addClick = () =>{
+    this.setState((state) => (
+      { clicks: state.clicks + 1 }
+    ))
+  }
+
+  componentDidMount(){
+    PubSub.subscribe( 'saludo', ( e, data )=>{
+        console.log(data);
+        
+    } )
+  }
+  
+  render(){
+
+    const { Provider } = myContext;
+
+    return (
+      <Provider value={{
+        clicks: this.state.clicks,
+        addClick: this.addClick
+      }}>
+        <div className="App"
+              
+            >
+          
+            <Abuelo />
+        </div>
+      </Provider>
+    );
+  }
+  
 }
 
 export default App;

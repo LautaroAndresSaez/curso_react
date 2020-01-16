@@ -323,6 +323,22 @@ tambien nos permite hacer mutaciones el el <strong>Hijo</strong></p>
 en ambos y para mandar informacion al evento, al cual llamaremos <strong>e</strong> se le agrega un atributo el cual subira en la jerarquia de eventos.</p>
 <p><strong>ACLARACION: gracias a esto es posible realizar comunicacion ñieto abuelo, o desde componentes inferiores a componentes de mayor jerarquia.</strong></p>
 <p>Esta practica es desaconsejable ya que existen dos flujos dentro de la aplicacion.</p>
+<h2 id="comunicacion-hermanos">Comunicacion Hermanos</h2>
+<p>Para comunicar hermanos se debe implementar una <strong>prop</strong> que sea afectada por uno de ellos y el otro pueda observarla, es decir,
+cuando yo haga click en un boton dicho evento debe afectar la <strong>prop</strong> que recibe alguno de sus hermanos.</p>
+<h2 id="observar-pattern">Observar Pattern</h2>
+<p>Para lograr comunicacion entre cualquierar componente a cualquier componente, sin importar cual sea su orden gerarquico,
+para ello se debe utilizar alguna libreria que permita dicha implementacion, la mas conocida a dia de hoy es <strong>PubSub</strong>.</p>
+<p>La libreria <strong>PubSub</strong> nos permite mediante el metodo <strong>publish</strong> publicar un evento, tal como se muetras a continuacion:</p>
+<p><img src="./Images/0032.png" alt="Inicializadores de propiedades"></p>
+<p>Por otro lado para escuchar el evento se debe utilizar el metodo <strong>suscribe</strong> es en componente que deseemos que escuche
+dicho evento:</p>
+<p><img src="./Images/0033.png" alt="Inicializadores de propiedades"></p>
+<p>Es importar desuscribirse cuando el componenete sea destruido, utilizando el metodo <strong>unsuscribe</strong>.</p>
+<h2 id="variables-globales">Variables globales</h2>
+<p>Es posible utilizar comunicacion entre componenetes mediante contamienacion de variables globales.
+esta practica es desaconsejada, pero puede servir para aplicaciones de prueba.</p>
+<h2 id="comunicacion-con-api-context">Comunicacion con API Context</h2>
 
       </body>
     </html>
