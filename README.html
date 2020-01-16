@@ -312,6 +312,17 @@ que se vayan a utilizar para iteraciones.</p>
 <h2 id="componentwillunmount">componentWillUnmount</h2>
 <p>Es el unico metodo se aplica cuando el componente es destruido. Y se utiliza para limpiar <strong>timers</strong>, <strong>listeners</strong> o <strong>metodos del padre</strong>.</p>
 <h1 id="9-composicion-y-comunicacion-entre-componentes">9- Composicion y comunicacion entre componentes</h1>
+<p>En este apartado se vera en profundidad las diferentes formas de comunicacion entre componentes, comenzando desde las mas sencillas
+como <strong>Padre-Hijo</strong> e <strong>Hijo-Padre</strong> hasta algunas mas complejas como </p>
+<h2 id="comunicacion-padre-hijo">Comunicacion Padre - Hijo</h2>
+<p>Es posible utilizar los metodos declarados en <strong>Hijo</strong> ingresano una <strong>ref</strong> desde el componente <strong>padre</strong> al componente <strong>Hijo</strong>, lo cual
+tambien nos permite hacer mutaciones el el <strong>Hijo</strong></p>
+<p><img src="./Images/0031.png" alt="Inicializadores de propiedades"></p>
+<h2 id="comunicacion-hijo-padre">Comunicacion Hijo - Padre</h2>
+<p>Debido a como es el manejo del <strong>DOM</strong> y los eventos es posible realizar una comunicacion <strong>Hijo</strong> <strong>Padre</strong> utilizando el mismo evento
+en ambos y para mandar informacion al evento, al cual llamaremos <strong>e</strong> se le agrega un atributo el cual subira en la jerarquia de eventos.</p>
+<p><strong>ACLARACION: gracias a esto es posible realizar comunicacion ñieto abuelo, o desde componentes inferiores a componentes de mayor jerarquia.</strong></p>
+<p>Esta practica es desaconsejable ya que existen dos flujos dentro de la aplicacion.</p>
 
       </body>
     </html>

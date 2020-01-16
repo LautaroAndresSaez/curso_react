@@ -496,5 +496,28 @@ Es el unico metodo se aplica cuando el componente es destruido. Y se utiliza par
 
 # 9- Composicion y comunicacion entre componentes
 
+En este apartado se vera en profundidad las diferentes formas de comunicacion entre componentes, comenzando desde las mas sencillas
+como **Padre-Hijo** e **Hijo-Padre** hasta algunas mas complejas como 
+
+## Comunicacion Padre - Hijo
+
+Es posible utilizar los metodos declarados en **Hijo** ingresano una **ref** desde el componente **padre** al componente **Hijo**, lo cual
+tambien nos permite hacer mutaciones el el **Hijo**
+
+![Inicializadores de propiedades](./Images/0031.png)
 
 
+## Comunicacion Hijo - Padre
+
+Debido a como es el manejo del **DOM** y los eventos es posible realizar una comunicacion **Hijo** **Padre** utilizando el mismo evento
+en ambos y para mandar informacion al evento, al cual llamaremos **e** se le agrega un atributo el cual subira en la jerarquia de eventos.
+
+**ACLARACION: gracias a esto es posible realizar comunicacion ñieto abuelo, o desde componentes inferiores a componentes de mayor jerarquia.**
+
+Esta practica es desaconsejable ya que existen dos flujos dentro de la aplicacion.
+
+
+## Comunicacion Hermanos
+
+Para comunicar hermanos se debe implementar una **prop** que sea afectada por uno de ellos y el otro pueda observarla, es decir,
+cuando yo haga click en un boton dicho evento debe afectar la **prop** que recibe alguno de sus hermanos.

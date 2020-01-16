@@ -1,24 +1,73 @@
-import React from 'react';
+import React, { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
+import Hijo from './components/Hijo'
+import Header from './components/Header'
+
+
+const style = { 
+  padding: '0.5em',
+  margin: '0.5em',
+  borderRadius: '0.3em',
+  textAling: 'center',
+  width: '300px'
+}
+
+const styleA = {
+  ...style,
+  border: '1px solid red'
+}
+
+const styleB = {
+  ...style,
+  border: '1px solid blue'
+}
+
 function App() {
+
+  const [ state, setState ] = useState( {
+    countA: 0,
+    countB: 0
+  } )
+
+  const Click = (e) =>{
+    console.log( e.saludo );
+
+  }
+
+  const handlerAddA = () => {
+    setState( state =>({
+      ...state,
+      countA: state.countA +1
+    } ))
+  }
+
+  const handlerAddB = () => {
+    setState( state =>({
+      ...state,
+      countB: state.countB +2
+    }) )
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
+    <div className="App"
+          onClick = { Click }
         >
-          Learn React
-        </a>
-      </header>
+      <Hijo  
+          num = { state.countA }
+          styles = { styleA }
+          name = { 'A' }
+          onAdd = { handlerAddB }
+      />
+      
+      <Hijo  
+          num = { state.countB }
+          styles = { styleB }
+          name = { 'B' }
+          onAdd = { handlerAddA }
+      />
+
     </div>
   );
 }
