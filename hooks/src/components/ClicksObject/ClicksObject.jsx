@@ -2,16 +2,16 @@ import React from 'react';
 import styles from './style.module.css';
 
 
-const COMPONENT_NAME = (props) =>{
+const ClicksObject = (props) =>{
 
 
     
     return(
         <div>
-            HOLA YO SOY COMPONENT_NAME
+            HOLA YO SOY ClicksObject
         </div>
     )
     
 }
 
-export default COMPONENT_NAME;
+export default ClicksObject;

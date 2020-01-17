@@ -17,7 +17,7 @@ def cambiarPalabras( template, palabras_clave, palabras_nuevas ):
 
     if( len( palabras_clave ) == len( palabras_nuevas ) ):
         for ( palabra_clave, palabra_nueva ) in zip( palabras_clave, palabras_nuevas ):
-            template = template.replace( palabra_clave, palabra_nueva.capitalize()  )
+            template = template.replace( palabra_clave, palabra_nueva  )
     else:
         raise ZeroDivisionError #cambiar en un futuro pls!
     
@@ -47,7 +47,7 @@ def crearComponente( path, component_name ):
     if( verificarCarpeta( path, component_name ) ):
         raise ZeroDivisionError #cambiar
     
-    component_name = component_name.capitalize()
+    component_name = component_name
     
     createFolder( path, component_name )
     
@@ -90,5 +90,10 @@ if( len( args ) == 3 ):
         nombre_componente = 'component_template.jsx'
 
 
-crearComponente( react_app_component, args[1] )
-        
+component_name = ''
+for palabra in args[1].split():
+    component_name += palabra.capitalize() 
+
+crearComponente( react_app_component, component_name )
+ 
+   

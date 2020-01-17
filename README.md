@@ -580,3 +580,13 @@ Existen 2 formas de pasar configuraciones a un **HOC**, las cuales son
 
 Nos permiten implementar componentes basados en funciones y dotarlos de las propiedades que poseen las propiedades de los componentes basados en
 clase.
+
+## useState
+
+Este **hook** permite utilizar el **state** y actualizarlo, para ello se debe importar el metodo **useState** del modulo **react**.
+
+![Inicializadores de propiedades](./Images/0036.png)
+
+Este **hook** permite que los **estados** sean cualquier tipo de variable desde booleanos hasta objetos, aunque el equipo de desarrollo de **REACT**,
+no recomienda la implementacion de objetos, ya que para su actualizacion se necesita realizar un **spread** entre el estado anterior y el estado actual.
+
