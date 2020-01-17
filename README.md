@@ -550,3 +550,33 @@ el cual genera los componentes **Provider** el cual posee un atributo **value** 
 desee recibirlo, y otro componente **Consumer** el cual obtiene los datos.
 
 **Consumer** recibe por primer valor una funcion que optiene el atributo **value**.
+
+## Render Props
+
+Permite pasar informacion de un componente **Hijo** a un componente **Padre**. Esta **prop** consiste en pasar una funcion **render** al hijo
+el cual renderice de forma dinamica una serie de etiquetas, haciendo que los componenetes sean aun mas reutilizables, y no dependan tanto de la
+forma en la que uno quiere renderizar. Esto es muy util cuando se trabaja en componentes que iteran sobre listas y sus funcionalidades, y su visualizacion son
+parecidas.
+
+![Inicializadores de propiedades](./Images/0034.png)
+
+## Patrones HOC ( High Order Component )
+
+Permite la comunicacion bidirrecional, y es una funcion la cual retorna un nuevo componente.
+
+![Inicializadores de propiedades](./Images/0035.png)
+
+Los **HOC** se suelen nombrar con **with** seguido por la accion que realizan, en la imagen anterior el nombre apropiado seria **withAdd**.
+
+### Pasar configuraciones a un HOC
+
+Existen 2 formas de pasar configuraciones a un **HOC**, las cuales son
+
+1- Mediante otro variable de entrada de la funcion **HOC**.
+2- Mediante una doble execucion del la funcion **HOC**.
+
+
+# 10- Hooks
+
+Nos permiten implementar componentes basados en funciones y dotarlos de las propiedades que poseen las propiedades de los componentes basados en
+clase.

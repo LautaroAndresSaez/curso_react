@@ -3,7 +3,7 @@ import warnings
 import sys
 
 path_archivos_base = './component'
-nombre_componente = 'component_template.jsx'
+nombre_componente = 'funcional_template.jsx'
 nombre_index = 'index_template.js'
 nombre_sass = 'style.module.js'
 clave_componente = 'COMPONENT_NAME'
@@ -87,7 +87,7 @@ react_app_component = os.path.join( react_app_src, carpeta_componentes )
 
 if( len( args ) == 3 ):
     if( args[2] ):
-        nombre_componente = 'funcional_template.jsx'
+        nombre_componente = 'component_template.jsx'
 
 
 crearComponente( react_app_component, args[1] )

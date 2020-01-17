@@ -2,8 +2,17 @@ import React, { useState } from 'react';
 import PubSub from 'pubsub-js';
 import logo from './logo.svg';
 
+import propTypes from 'prop-types';
+
+import clicksContexts from './Contaxts/clicks';
+
+import Hijo from './components/Hijo'
+import Lista from './components/Lista'
+
 
 import './App.css';
+
+
 
 
 
@@ -16,97 +25,92 @@ const style = {
   width: '300px'
 }
 
-const myContext= React.createContext();
+class Resize extends React.Component {
 
-class Abuelo extends React.Component{
-  render(){
-      return(
-          <div className = 'box'>
-              <Padre />
-          </div>
-      )
+  static propTypes = {
+    render: propTypes.func.isRequired
   }
-}
-
-class Padre extends React.Component{
-  render(){
-      return(
-          <div  className = 'box'> 
-              <Hijo />
-          </div>
-      )
-  }
-}
-
-
-class Hijo extends React.Component{
-
-  handlerClick = () => {
-      console.log( ':3' );
-      
-  }
-
-  dataRecive = ( { clicks, addClick } ) =>(
-      <div>
-          <button onClick = { addClick }>
-              CLICK: { clicks }
-          </button>
-      </div>
-  )
-
-  render(){
-
-      return(
-          <myContext.Consumer>
-          {
-              ( context ) => {
-                  return( this.dataRecive( context ) )
-              }
-          }
-          </myContext.Consumer>
-      );
-  }
-}
-
-
-class App extends React.Component {
 
   state = {
-    clicks: 0
+    width: window.innerWidth,
+    height: window.innerHeight
   }
 
-  addClick = () =>{
-    this.setState((state) => (
-      { clicks: state.clicks + 1 }
-    ))
+  componentDidMount() {
+    window.addEventListener( 'resize', this.handlerResize );
+  }
+  
+  componentWillMount(){
+    window.removeEventListener( 'resize', this.handlerResize );
   }
 
-  componentDidMount(){
-    PubSub.subscribe( 'saludo', ( e, data )=>{
-        console.log(data);
-        
+  handlerResize = () => {
+    this.setState( {
+      width: window.innerWidth,
+      height: window.innerHeight
     } )
+  }
+
+  render(){
+    
+    const { width, height } = this.state;
+
+    const { render } = this.props;
+
+    return render( { width, height } )
+  }
+
+}
+
+
+
+const myHoc = ( Comp ) => {
+  return class extends React.Component {
+
+    state = {
+      clicks: 0
+    }
+
+    add = () =>{
+      this.setState( state =>({
+        clicks: state.clicks + 1 
+      }) )
+    }
+
+    render(){
+      return( 
+        <Comp 
+          name = "Lauti's APP! "
+          clicks = { this.state.clicks }
+          add = { this.add }
+        />
+      )
+    }
+  }
+}
+class App extends React.Component {  
+  handlerRender = ( data ) =>{
+    return(
+      <div>
+        { data.width } x { data.height }
+      </div>
+    )
   }
   
   render(){
 
-    const { Provider } = myContext;
-
     return (
-      <Provider value={{
-        clicks: this.state.clicks,
-        addClick: this.addClick
-      }}>
-        <div className="App"
-              
-            >
-          
-            <Abuelo />
-        </div>
-      </Provider>
+      <div>
+          <h1>HOLA SOY LA { this.props.name }</h1>
+
+          <button onClick = { this.props.add  }>
+            Usted Realizo { this.props.clicks } clicks.
+          </button>
+
+      </div>
     );
   }
   
 }
+export default  myHoc( App ); 
 
-export default App;
