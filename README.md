@@ -766,6 +766,22 @@ d- **trnasition-timing-function**
 
 ## Funciones de animacion
 
-Es posible generar animaciones personalizadas, lo que nos permite mejorar la experiencia de usuario.
+Es posible generar animaciones personalizadas, lo que nos permite mejorar la experiencia de usuario. Esto se hace 
+utilizando la propiedad **animation** se pueden declarar animaciones personalizadas con
+**@keyframes**.
  
+![Inicializadores de propiedades](./Images/0052.png)
+
+Es posible no declarar el valor 50% utilizando la propiedad **animation-direction** la cual nos permite seleccionar cual es la
+dirrecion de la animacion.
+
+![Inicializadores de propiedades](./Images/0053.png)
+
+Mediante la propiedad **animation-fill-mode** puedo seleccionar las propiedades finales que tendra el objeto una vez acabada la 
+animacion. Utilizando **forwards** para los valos finales y **backwards** para los iniciales.
+
+![Inicializadores de propiedades](./Images/0054.png)
+
+
+
 
