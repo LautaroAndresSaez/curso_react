@@ -1,0 +1,8 @@
+.ball {
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: tomato;
+  -webkit-transition: all 1.5s 1s ease;
+  -o-transition: all 1.5s 1s ease;
+  transition: all 1.5s 1s ease; }

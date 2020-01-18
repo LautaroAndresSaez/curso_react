@@ -590,3 +590,182 @@ Este **hook** permite utilizar el **state** y actualizarlo, para ello se debe im
 Este **hook** permite que los **estados** sean cualquier tipo de variable desde booleanos hasta objetos, aunque el equipo de desarrollo de **REACT**,
 no recomienda la implementacion de objetos, ya que para su actualizacion se necesita realizar un **spread** entre el estado anterior y el estado actual.
 
+## useEffect
+
+El **hook** **useEffect** viene a cumplir las funciones de los metodos de ciclo de vida como **componentDidMount**, **componentDidUpdate** y **componentWillUnmount**.
+
+Para utilizar **useEffect** para suplir las funcionalidades de **componentDidMount** y **componentDidUpdate** se implementa una arrow function las cual ejecuta las
+tareas necesarias. En cambio si se desea utilizar **componentWillUnmount** debemos implementarle un **return** a **useEffect** el cual tambien debe ser una arrow function.
+
+Como segundo parametro **useEffect** recibe un array el cual le indica cuando ejecutarse, es decir, se ejecutara cuando las variables dentro de ese array presenten un cambio.
+
+![Inicializadores de propiedades](./Images/0037.png)
+
+Si no le pasamos un array vacio se ejecutara una unica vez, en cambio si no le pasamos ningun valor se ejecutara siempre.
+
+## Reglas de Hooks
+
+Los hooks se deben ejecutar en el 1er nivel del componente, no se deben implementar hooks en bucleas o condicionales, para implementar un hook personalizado
+su nombre debe comenzar con **use** tal como lo hacen los hooks de **REACT**.
+
+## useLayoutEffect
+
+Es un **hook** muy poco utilizado, ya que es practicamente igual que el **useEffect**, siempre se ejecutaran primero los **useLayoutEffect** antes que los **useEffect**, y se 
+ejecuta antes de la actualizacion del **DOM**.
+
+## useContext
+
+Este **hook** suplanta el **API Context** visto en la seccion anterior. Para utilizar el **useContext** le debo pasar por parametro el contexto que queremos utilizar. 
+
+![Inicializadores de propiedades](./Images/0038.png)
+
+## useRef
+
+Este **hook** permite utilizar referencias, dentro de los componenetes funcionales, suplantando al metodo **createRef**.
+
+## Hooks de terceros
+
+Se pueden intstallar **hooks** de terceros con **npm**, como por ejemplo el hooks **useDebounce** el cual permite hacer peticiones cada un determinado tiempo.
+
+## useReducer
+
+Es una forma alternativa del **hook** **useState** y se suele utilizar cuando el estado posee muchas variables. Para la implementacion se debe pasar como primer parametro
+una funcion que recibe el **state** y la **action**, y como segundo parametro el estado inicial.
+
+![Inicializadores de propiedades](./Images/0039.png)
+
+Luego la funcion **reducer** se suele implementar de la forma:
+
+![Inicializadores de propiedades](./Images/0040.png)
+
+## useImperativeHandle
+
+Este **hook** permite pasar la **ref** de un padre a un hijo, de primer valor recibe la referencia y como segundo parametro una arrow function, la cual retorna un objeto que estara disponible en el padre, utilizando la **ref**.
+
+![Inicializadores de propiedades](./Images/0041.png)
+
+## React.memo()
+
+El metodo **memo** nos permite almacenar memoria y optimizar cuando la pagina web se actulizara, para ello debemos envolver a nuestro componente
+evitando asi las renderizacion inecesarias.
+
+![Inicializadores de propiedades](./Images/0042.png)
+
+Cabe aclarar que las comparaciones de las **props** son de 1er nivel, si existen objetos anidados esto causa error. Para dichos casos **memo** admite
+como segundo parametro la funcion de diferenciacion, la cual debemos implementar nosotros. El componente re renderizara cuando la funcion de diferenciacion
+retorne **false** en caso contrario no se renderizara.
+
+## useCallback
+
+Evite crear funciones con cada renderizado y se utiliza con **memo** y sirve para cuando el padre le pase al hijo un funcion. Cabe destacar que si se desea
+actualizar un estado debemos utilizar la forma de arrow function para el
+**setState**.
+
+![Inicializadores de propiedades](./Images/0043.png)
+
+Al metodo **useCallback** se le pueden pasar dependencias para que la funcion se actualice cuando cambie algun valor.
+
+![Inicializadores de propiedades](./Images/0044.png)
+
+## useMemo
+
+Nos permite memorizar, y no se renderiza a menos que cambie, como segundo parametro le podemos pasar una lista
+de dependencias indicandole cuando queremos que se actualice.
+
+## Hooks personalizados
+
+Los **hooks** personalizados nos permiten reutilizar logica, como por ejemplo peticiones **http**. Para obtener valores de un **hook** estos deben
+ser retornados.
+
+![Inicializadores de propiedades](./Images/0045.png)
+
+## useDebugValue
+
+Este nos permite agregar etiquetas para las **reactDevTools** y poder identificarlo facilmente. Es recomendado utilizar esta herramienta cuando
+creemos un **hook** para compartir con la comunidad
+
+## eslint
+
+Un plugin muy util para el desarrollo con **hooks** en **REACT** es el eslint-plugin-react-hooks el cual nos ayuda a tener buenas
+practicas de hooks.
+
+> npm i -D eslint-plugin-react-hooks
+
+# 11- Props Children
+
+El manejo del los **children** dependen unicamente del componente **padre**, los **children** pueden ser cualquier elemento
+incluso arrow function, pero solo pueden ser renderizados **textos** o elementos de **HTML**. 
+
+Los **children** son una estructura de datos opacos, pues no sabemos que nos va a llegar, si un array, un objeto o texto plano.
+
+## Tratamiento de Children
+
+Para el tratamiento de Children **REACT** proporciona diferentes metodos los cuales se encuentran en **REACT.Children**, estos metodos pueden ser:
+
+1- **map**: itera solo sobre los hijos que puede renderizar y retorna un array.
+
+![Inicializadores de propiedades](./Images/0046.png)
+
+2- **forEach**: itera sobre todos los hijos que puede renderizar y retorna un elemento.
+
+![Inicializadores de propiedades](./Images/0047.png)
+
+3- **toArray**: convierte el **children** en un array, muy util cuando no sabemos cuando **children** vamos a recibir.
+
+4- **only**: verifica que solo tengamos un **children**.
+
+## Composicion implicita
+
+Para pasarle **props** a un componente que venga como **children** debemos utilizar el metodo **cloneElement** de **REACT**, el cual recibe como primer parametro
+el elemento y como segundo parametro las props.
+
+![Inicializadores de propiedades](./Images/0048.png)
+
+Puedo saber el type de un **child** y comprarlo directamente con el tipo de etiqueta que espero para saber que **props** pasarles.
+
+![Inicializadores de propiedades](./Images/0049.png)
+
+# 12- Fundamentos de division de codigo y lazy load
+
+En este apartado veremos formas de mejorar la eficiencia de nuestro codigo basados en 2 tecnicas el **code Splitting** y el **lazy load**
+
+## Code Splitting
+
+Este metodo es dividir nuetro codigo, haciendo mas sencilla la carga.
+
+Para generar esta accion debemos utilizar **lazy**, la cual recibe una arrow function y debe retornar la importacion asincrona de nuestro componente.
+
+![Inicializadores de propiedades](./Images/0050.png)
+
+## Lazy Load
+
+Este metodo consiste en descargar una fraccion de codigo, la cual necesita la aplicacion para arrancar
+y luego ir descargando los fragmentos de codigo que sean necesarios para su funcionamiento.
+
+Para el lazy load debemos utilizar el componente **Suspense** de **REACT**.
+
+![Inicializadores de propiedades](./Images/0051.png)
+
+# 13- Animaciones y transiciones
+
+## Transition
+
+La propiedad **transition** recibe como parametros:
+
+1- Los elementos a los cuales los afectara dicha propiedad.
+2- El primer tiempo que se ingrese sera la duracion de la animacion
+3- El segundo tiempo sera el delay o retraso de la animacion
+4- Es el tipo de aceleracion de la animacion
+
+Los elementos se pueden pasar por separado mediante los atributos:
+
+a- **transition-property**
+b- **trnasition-duration**
+c- **trnasition-delay**
+d- **trnasition-timing-function**
+
+## Funciones de animacion
+
+Es posible generar animaciones personalizadas, lo que nos permite mejorar la experiencia de usuario.
+ 
+

@@ -1,0 +1,12 @@
+$color-primary: rgb( 200, 30, 170 )
+$color-secondary: rgba( $color-primary, .3 )
+
+.user
+    border: .2em solid #cccccc
+    border-radius: .3em
+    width: 300px
+    padding: 2px
+    background: linear-gradient( 60deg, $color-primary, $color-secondary )
+
+    &:hover
+        background: linear-gradient( 60deg, $color-primary, rgba( $color-primary, .5 ) )

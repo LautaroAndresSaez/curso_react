@@ -1,0 +1,12 @@
+.user {
+  border: .2em solid #cccccc;
+  border-radius: .3em;
+  width: 300px;
+  padding: 2px;
+  background: -webkit-linear-gradient(30deg, #c81eaa, rgba(200, 30, 170, 0.3));
+  background: -o-linear-gradient(30deg, #c81eaa, rgba(200, 30, 170, 0.3));
+  background: linear-gradient(60deg, #c81eaa, rgba(200, 30, 170, 0.3)); }
+  .user:hover {
+    background: -webkit-linear-gradient(30deg, #c81eaa, rgba(200, 30, 170, 0.5));
+    background: -o-linear-gradient(30deg, #c81eaa, rgba(200, 30, 170, 0.5));
+    background: linear-gradient(60deg, #c81eaa, rgba(200, 30, 170, 0.5)); }
