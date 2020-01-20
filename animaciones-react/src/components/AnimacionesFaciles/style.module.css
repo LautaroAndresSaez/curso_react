@@ -1,3 +1,42 @@
+@-webkit-keyframes showUp {
+  0% {
+    background: #3d1f94;
+    -webkit-transform: scale(0) rotate(250deg);
+    transform: scale(0) rotate(250deg); }
+  100% {
+    background: -webkit-linear-gradient(45deg, rgba(150, 0, 155, 0.9), rgba(100, 30, 200, 0.3));
+    background: linear-gradient(45deg, rgba(150, 0, 155, 0.9), rgba(100, 30, 200, 0.3));
+    -webkit-transform: scale(1) rotate(0);
+    transform: scale(1) rotate(0); } }
+
+@keyframes showUp {
+  0% {
+    background: #3d1f94;
+    -webkit-transform: scale(0) rotate(250deg);
+    transform: scale(0) rotate(250deg); }
+  100% {
+    background: -webkit-linear-gradient(45deg, rgba(150, 0, 155, 0.9), rgba(100, 30, 200, 0.3));
+    background: -o-linear-gradient(45deg, rgba(150, 0, 155, 0.9), rgba(100, 30, 200, 0.3));
+    background: linear-gradient(45deg, rgba(150, 0, 155, 0.9), rgba(100, 30, 200, 0.3));
+    -webkit-transform: scale(1) rotate(0);
+    transform: scale(1) rotate(0); } }
+
+@-webkit-keyframes hoverMenu {
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1); }
+  100% {
+    -webkit-transform: scale(0);
+    transform: scale(0); } }
+
+@keyframes hoverMenu {
+  0% {
+    -webkit-transform: scale(1);
+    transform: scale(1); }
+  100% {
+    -webkit-transform: scale(0);
+    transform: scale(0); } }
+
 .header {
   padding: .3em;
   margin: .3em;
@@ -6,18 +45,20 @@
   color: white;
   -webkit-transition: all 1s ease;
   -o-transition: all 1s ease;
-  transition: all 1s ease; }
-
-.show {
-  background: -webkit-linear-gradient(45deg, rgba(150, 0, 155, 0.9), rgba(100, 30, 200, 0.3));
-  background: -o-linear-gradient(45deg, rgba(150, 0, 155, 0.9), rgba(100, 30, 200, 0.3));
-  background: linear-gradient(45deg, rgba(150, 0, 155, 0.9), rgba(100, 30, 200, 0.3));
-  -webkit-transform: scale(1);
-  -ms-transform: scale(1);
-  transform: scale(1); }
-
-.dont-show {
-  background: #3d1f94;
+  transition: all 1s ease;
   -webkit-transform: scale(0);
   -ms-transform: scale(0);
   transform: scale(0); }
+
+.show {
+  -webkit-animation: showUp 1500ms  1  forwards;
+  animation: showUp 1500ms  1  forwards; }
+
+.menu {
+  background: #3d1f94; }
+  .menu:hover {
+    -webkit-animation: hoverMenu 1s ease forwards 2;
+    animation: hoverMenu 1s ease forwards 2;
+    -webkit-animation-direction: alternate;
+    animation-direction: alternate;
+    background: black; }

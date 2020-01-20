@@ -1,0 +1,76 @@
+@-webkit-keyframes showImage {
+  0% {
+    z-index: 1;
+    -webkit-transform: scale(0.8);
+    transform: scale(0.8);
+    opacity: 0; }
+  100% {
+    z-index: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    opacity: 1; } }
+
+@keyframes showImage {
+  0% {
+    z-index: 1;
+    -webkit-transform: scale(0.8);
+    transform: scale(0.8);
+    opacity: 0; }
+  100% {
+    z-index: 1;
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    opacity: 1; } }
+
+@-webkit-keyframes hideImage {
+  0% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
+
+@keyframes hideImage {
+  0% {
+    opacity: 1; }
+  100% {
+    opacity: 0; } }
+
+.animation-show {
+  -webkit-animation: showImage 650ms ease-out;
+  animation: showImage 650ms ease-out;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards; }
+
+.animation-hide {
+  -webkit-animation: hideImage 650ms ease-out;
+  animation: hideImage 650ms ease-out;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards; }
+
+.slide {
+  width: 100vw;
+  height: 50vh;
+  background: rgba(0, 0, 0, 0.8);
+  color: #FFF;
+  font-family: 'Open Sans', sans-serif; }
+  .slide .container {
+    height: 50vh;
+    width: 100%;
+    max-width: 400px;
+    overflow: hidden;
+    margin: 0 auto;
+    position: relative;
+    top: 0; }
+    .slide .container .image {
+      width: 100%;
+      position: absolute;
+      top: 0;
+      left: 0; }
+  .slide .title {
+    position: absolute;
+    bottom: 0;
+    z-index: 50;
+    width: 100%;
+    line-height: 4;
+    background: rgba(0, 0, 0, 0.3);
+    padding: 0 .2em;
+    text-shadow: 1px 1px black; }

@@ -782,6 +782,19 @@ animacion. Utilizando **forwards** para los valos finales y **backwards** para l
 
 ![Inicializadores de propiedades](./Images/0054.png)
 
+# 14- styled-component 
 
+
+# 15- React Router V5
+
+Para instalar React Router se debe ejecutar el comando
+> npm i react-router-dom
+
+Para la implementacion de las rutas en React se deben importar 2 componentes del modulo **react-router-dom**.
+
+![Inicializadores de propiedades](./Images/0055.png)
+
+Es importante saber que es posible utilizar el componente **Route** dentro de cualquier etiqueta, luego
+cualquier componente que sea renderizado en una ruta, sera dentro de dicha etiqueta
 
 

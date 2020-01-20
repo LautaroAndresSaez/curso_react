@@ -1,3 +1,21 @@
+$cosa: #3d1f94
+    
+@keyframes showUp
+    0%
+        background: $cosa
+        transform: scale( 0 ) rotate( 250deg )
+    100%
+        background: linear-gradient( 45deg, rgba( 150, 0, 155, .9 ), rgba( 100, 30, 200, .3 ) )
+        transform: scale( 1 ) rotate( 0 )
+    
+@keyframes hoverMenu
+    0%
+        transform: scale( 1 ) 
+    
+    100%
+        transform: scale( 0 )
+
+
 .header
     padding: .3em
     margin: .3em
@@ -5,11 +23,17 @@
     border-radius: .3em
     color: white
     transition: all 1s ease
+    transform: scale( 0 )
 
 .show
-    background: linear-gradient( 45deg, rgba( 150, 0, 155, .9 ), rgba( 100, 30, 200, .3 ) )
-    transform: scale( 1 )
+    animation: showUp 1500ms  1  forwards
+    
 
-.dont-show
-    background: #3d1f94
-    transform: scale( 0 )
+
+.menu
+    background: $cosa
+
+    &:hover
+        animation: hoverMenu 1s ease forwards 2
+        animation-direction: alternate
+        background: black
